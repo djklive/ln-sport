@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    height: 100vh;
+}
+
+@layer base {
+    :root {
+        --color-primary: #0D2648;
+        --color-secondary: #F3653D;
+    }
+}
