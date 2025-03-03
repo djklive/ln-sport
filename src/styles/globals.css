@@ -12,3 +12,11 @@ body {
         --color-secondary: #F3653D;
     }
 }
+
+.header-2 {
+    @apply mb-4 text-4xl font-semibold uppercase text-red-500
+}
+
+.highlight {
+    @apply image-full bg-base-100 shadow-xl w-72
+}

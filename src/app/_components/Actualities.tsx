@@ -13,27 +13,30 @@ type ActualityProps = {
 };
 
 const Actualities: React.FC<ActualityProps> = ({
-  actualities: [activity, ...activities],
+  actualities: [sportUpdate, ...sportUpdates],
 }) => {
   return (
     <section className="rounded-lg bg-white p-6 shadow-lg">
-      <h3 className="mb-4 text-4xl font-semibold uppercase text-red-500">
+      <h3 className="header-2">
         Actualites sportives
       </h3>
       <div className="grid gap-4 md:grid-cols-2">
-        <div>
-          <Image
-            width={1000}
-            height={10}
-            src={activity?.image_ref ?? "/ln-icon.svg"}
-            alt="Football News"
-          />
-          <p>{activity?.posted_on.toDateString()}</p>
-          <h4 className="font-semibold uppercase">{activity?.title}</h4>
-          <p>{activity?.summary}</p>
+        <div className="card bg-base-100">
+          <figure className="w-full">
+            <img
+              className="min-h-full min-w-full"
+              src={sportUpdate?.image_ref ?? "/ln-icon.svg"}
+              alt="Football News"
+            />
+          </figure>
+          <div className="card-body">
+            <p>{sportUpdate?.posted_on.toDateString()}</p>
+            <h2 className="card-title">{sportUpdate?.title}</h2>
+            <p>{sportUpdate?.summary}</p>
+          </div>
         </div>
         <div className="grid gap-4">
-          {activities.map((actuality, i) => (
+          {sportUpdates.map((actuality, i) => (
             <ActivityComponent key={i} actuality={actuality} />
           ))}
         </div>
@@ -48,13 +51,14 @@ const ActivityComponent: React.FC<{ actuality: Actuality }> = ({
   actuality,
 }) => {
   return (
-    <div className="card bg-base-100 shadow-xl grid md:grid-flow-col">
-      <Image
-        width={1000}
-        height={100}
-        src={actuality?.image_ref ?? "/ln-icon.svg"}
-        alt="Football News"
-      />
+    <div className="card bg-base-100 shadow-xl lg:card-side">
+      <figure className="w-full">
+        <img
+          className="min-h-full min-w-full"
+          src={actuality?.image_ref ?? "/ln-icon.svg"}
+          alt="Football News"
+        />
+      </figure>
       <div className="card-body">
         <p>{actuality?.posted_on.toDateString()}</p>
         <h2 className="card-title">{actuality.title}</h2>
