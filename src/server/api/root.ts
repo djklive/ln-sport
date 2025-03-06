@@ -1,5 +1,12 @@
 import { postRouter } from "@ln-foot/server/api/routers/post";
-import { createCallerFactory, createTRPCRouter } from "@ln-foot/server/api/trpc";
+import {
+  createCallerFactory,
+  createTRPCRouter,
+} from "@ln-foot/server/api/trpc";
+import { scoreRouter } from "./routers/score";
+import { newsRouter } from "./routers/news";
+import { articleRouter } from "./routers/article";
+import { highlightRouter } from "./routers/highlight";
 
 /**
  * This is the primary router for your server.
@@ -8,6 +15,10 @@ import { createCallerFactory, createTRPCRouter } from "@ln-foot/server/api/trpc"
  */
 export const appRouter = createTRPCRouter({
   post: postRouter,
+  score: scoreRouter,
+  news: newsRouter,
+  article: articleRouter,
+  highlight: highlightRouter,
 });
 
 // export type definition of API

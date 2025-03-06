@@ -5,7 +5,8 @@ export type News = {
   title: string;
   summary: string;
   posted_on: Date;
-  image_ref: string;
+  imageRef: string;
+  description: string
 };
 
 type NewsListProps = {
@@ -18,7 +19,7 @@ const News: React.FC<{ actuality: News }> = ({ actuality }) => {
       <figure className="w-full">
         <img
           className="min-h-full min-w-full"
-          src={actuality?.image_ref ?? "/ln-icon.svg"}
+          src={actuality?.imageRef ?? "/ln-icon.svg"}
           alt="Football News"
         />
       </figure>
@@ -45,7 +46,7 @@ const NewsList: React.FC<NewsListProps> = ({
           <figure className="w-full">
             <img
               className="min-h-full min-w-full"
-              src={latestNews?.image_ref ?? "/ln-icon.svg"}
+              src={latestNews?.imageRef ?? "/ln-icon.svg"}
               alt="Football News"
             />
           </figure>
