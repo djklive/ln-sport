@@ -17,9 +17,12 @@ type LiveScoresProps = {
 const LiveScores: React.FC<LiveScoresProps> = ({ competition, scores }) => {
   return (
     <section className="rounded-lg bg-white p-6 shadow-lg">
-      <h3 className="mb-4 text-4xl font-semibold uppercase text-red-500">
-        Scores en direct
-      </h3>
+      <div className="flex justify-between text-red-500">
+        <h3 className="header-2">
+          Scores en direct
+        </h3>
+        <kbd className="btn btn-ghost kbd uppercase">Voir Plus &gt;</kbd>
+      </div>
       <h3 className="mb-4 bg-blue-900 p-4 text-3xl font-semibold uppercase text-white">
         {competition}
       </h3>
@@ -31,7 +34,9 @@ const LiveScores: React.FC<LiveScoresProps> = ({ competition, scores }) => {
               <div>{match.team1}</div>
               <div>{match.score1}</div>
             </div>
-            <div className="divider divider-end text-green-500">{match.time}&apos;</div>
+            <div className="divider divider-end text-green-500">
+              {match.time}&apos;
+            </div>
             <div className="flex justify-between font-bold">
               <div>{match.team2}</div>
               <div>{match.score2}</div>

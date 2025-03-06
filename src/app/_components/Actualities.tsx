@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 export type Actuality = {
@@ -17,9 +16,10 @@ const Actualities: React.FC<ActualityProps> = ({
 }) => {
   return (
     <section className="rounded-lg bg-white p-6 shadow-lg">
-      <h3 className="header-2">
-        Actualites sportives
-      </h3>
+      <div className="flex justify-between text-red-500">
+        <h3 className="header-2">Actualites sportives</h3>
+        <kbd className="btn btn-ghost kbd uppercase">Voir Plus &gt;</kbd>
+      </div>
       <div className="grid gap-4 md:grid-cols-2">
         <div className="card bg-base-100">
           <figure className="w-full">
@@ -30,8 +30,8 @@ const Actualities: React.FC<ActualityProps> = ({
             />
           </figure>
           <div className="card-body">
-            <p>{sportUpdate?.posted_on.toDateString()}</p>
-            <h2 className="card-title">{sportUpdate?.title}</h2>
+            <p>{sportUpdate?.posted_on.toLocaleDateString()}</p>
+            <h2 className="card-title link link-hover">{sportUpdate?.title}</h2>
             <p>{sportUpdate?.summary}</p>
           </div>
         </div>
@@ -60,8 +60,8 @@ const ActivityComponent: React.FC<{ actuality: Actuality }> = ({
         />
       </figure>
       <div className="card-body">
-        <p>{actuality?.posted_on.toDateString()}</p>
-        <h2 className="card-title">{actuality.title}</h2>
+        <p className="">{actuality?.posted_on.toDateString()}</p>
+        <h2 className="card-title link link-hover">{actuality.title}</h2>
         <p>{actuality.summary}</p>
       </div>
     </div>
