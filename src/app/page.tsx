@@ -1,10 +1,11 @@
 import { auth } from "@ln-foot/server/auth";
 import { api, HydrateClient } from "@ln-foot/trpc/server";
-import Actualities, { type Actuality } from "./_components/Actualities";
+import NewsList, { type News } from "./_components/landingSections/News";
 import Footer from "./_components/Footer";
-import HeroSection from "./_components/HeroSection";
-import Highlights, { Highlight } from "./_components/Highlights";
-import LiveScores, { type Score } from "./_components/LiveScores";
+import HeroSection from "./_components/landingSections/HeroSection";
+import Highlights, { type Highlight } from "./_components/landingSections/Highlights";
+import LiveScores, { type Score } from "./_components/landingSections/LiveScores";
+import Articles, { type Article } from "./_components/landingSections/Articles";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
@@ -41,13 +42,13 @@ export default async function Home() {
   ];
 
   const highlightsData: Highlight[] = [
-    { title: "🏆 Meilleur Joueur de la Semaine", image_ref: "/highlight.png" },
-    { title: "🔥 Matchs les Plus Attendus", image_ref: "/highlight1.png" },
-    { title: "📸 Photos Exclusives", image_ref: "/highlight2.png" },
-    { title: "📸 Photos Exclusives II", image_ref: "/highlight3.png" },
+    { title: "🏆 Meilleur Joueur de la Semaine", imageRef: "/highlight.png" },
+    { title: "🔥 Matchs les Plus Attendus", imageRef: "/highlight1.png" },
+    { title: "📸 Photos Exclusives", imageRef: "/highlight2.png" },
+    { title: "📸 Photos Exclusives II", imageRef: "/highlight3.png" },
   ];
 
-  const activities: Actuality[] = [
+  const news: News[] = [
     {
       image_ref: "/FB_IMG_1727680526207.png",
       posted_on: new Date(),
@@ -78,12 +79,37 @@ export default async function Home() {
     },
   ];
 
+  const articles: Article[] = [
+    {
+      description:
+        "After months of rehab and dedication, a beloved NBA veteran made his inspiring return to the court. Fans and teammates celebrate his resilience and determination.",
+      imageRef: "/article1.png",
+      price: 10_000,
+      title: "MAILLOT DE L’equipe nationale du cameroun",
+    },
+    {
+      description:
+        "From buzzer-beaters to game-saving blocks, last night’s games were packed with unforgettable moments. Dive into the highlights and relive the most intense plays.",
+      imageRef: "/article2.png",
+      price: 15_000,
+      title: "GODASSE MONTANTE (predator)",
+    },
+    {
+      description:
+        "This year’s NBA All-Star Game will feature some fresh faces. Get to know the new All-Stars and how they earned their spot alongside the league’s elite.",
+      imageRef: "/article3.png",
+      price: 15_000,
+      title: "BALLON ligue des champions",
+    },
+  ];
+
   return (
     <HydrateClient>
-      <HeroSection title={"L'actualite du football en continu".toUpperCase()} />
+      <HeroSection title={"L'actualite du football en continu"} />
       <LiveScores competition="MTN Elite One" scores={scoresData} />
       <Highlights highlights={highlightsData} />
-      <Actualities actualities={activities} />
+      <NewsList actualities={news} />
+      <Articles articles={articles} />
       <Footer />
     </HydrateClient>
   );

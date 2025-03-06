@@ -2,7 +2,7 @@ import React from "react";
 
 export type Highlight = {
   title: string;
-  image_ref: string;
+  imageRef: string;
 };
 
 type HighlightsProps = {
@@ -11,14 +11,14 @@ type HighlightsProps = {
 
 const Highlights: React.FC<HighlightsProps> = ({ highlights }) => {
   return (
-    <section className="bg-gray-100 p-6">
-      <div className="flex justify-between text-red-500">
+    <section className="p-4">
+      <div className="section-title">
         <h3 className="header-2">Points Forts</h3>
-        <kbd className="btn btn-ghost kbd uppercase">Voir Plus &gt;</kbd>
+        <kbd className="ghost-btn">Voir Plus &gt;</kbd>
       </div>
 
       <div className="grid grid-flow-row justify-center gap-4 md:grid-flow-col">
-        {highlights.map(({ title: highlight, image_ref }, index) => (
+        {highlights.map(({ title: highlight, imageRef: image_ref }, index) => (
           <div key={index} className="highlight card">
             <figure>
               <img

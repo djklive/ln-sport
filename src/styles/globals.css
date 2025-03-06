@@ -14,9 +14,17 @@ body {
 }
 
 .header-2 {
-    @apply mb-4 text-4xl font-semibold uppercase text-red-500
+    @apply p-8 lg:text-5xl text-3xl font-semibold uppercase text-base-secondary
 }
 
 .highlight {
     @apply image-full bg-base-100 shadow-xl w-72
+}
+
+.ghost-btn {
+    @apply btn btn-ghost kbd uppercase hover:bg-transparent hover:border-base-secondary
+}
+
+.section-title {
+    @apply flex justify-between text-base-secondary items-center
 }
