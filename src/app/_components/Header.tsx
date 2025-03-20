@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   return (
@@ -7,24 +8,29 @@ const Header: React.FC = () => {
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center p-4">
             <img src="/ln-icon.png" alt="Football News" />
-            <a className="btn btn-ghost text-xl">LN FOOT</a>
+            <Link href="/" className="btn btn-ghost text-xl">LN FOOT</Link>
           </div>
           <div className="dropdown w-full flex justify-end">
             <ul className="menu menu-sm dropdown-content bg-blue-900/50 z-1 mt-3 w-52 p-2 shadow">
               <li>
-                <a href="#" className="hover:text-orange-500">
+                <Link href="#" className="hover:text-orange-500">
                   Accueil
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-orange-500">
+                <Link href="#" className="hover:text-orange-500">
                   Actualités
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-orange-500">
+                <Link href="#" className="hover:text-orange-500">
                   Scores
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-orange-500">
+                  Contact
+                </Link>
               </li>
             </ul>
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,19 +54,24 @@ const Header: React.FC = () => {
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a href="#" className="hover:text-orange-500">
+              <Link href="/" className="hover:text-orange-500">
                 Accueil
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-orange-500">
+              <Link href="/actualites" className="hover:text-orange-500">
                 Actualités
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-orange-500">
+              <Link href="/scores" className="hover:text-orange-500">
                 Scores
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-orange-500">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
