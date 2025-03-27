@@ -8,7 +8,7 @@ interface UserPageProps {
   params: Promise<{ id: string }>; // Extracted from the dynamic route
 }
 export default async function NewsPage({ params }: UserPageProps) {
-  const { news: latestNews } = await api.news.findOne({ id: await params.id });
+  const { news: latestNews } = await api.news.findOne({ id: (await params).id });
 
   if (!latestNews) {
     notFound(); // Redirects to 404 page if user is not found
