@@ -1,3 +1,5 @@
+import { SectionTitle } from "../common/section-title";
+
 export type Article = {
   price: number;
   title: string;
@@ -11,18 +13,17 @@ type ArticlesProps = {
 
 const Article: React.FC<{ article: Article }> = ({ article }) => {
   return (
-    <div className="card w-96">
+    <div className="card max-w-md">
       <figure>
-        <img
-          src={article.imageRef}
-          alt="Article"
-        />
+        <img src={article.imageRef} alt="Article" />
       </figure>
       <div className="card-body px-0">
         <h2 className="card-title">{article.title}</h2>
         <p>{article.description}</p>
         <div className="card-actions">
-          <button className="w-full btn text-white bg-base-secondary">Acheter</button>
+          <button className="btn w-full bg-base-secondary text-white">
+            Acheter
+          </button>
         </div>
       </div>
     </div>
@@ -32,10 +33,7 @@ const Article: React.FC<{ article: Article }> = ({ article }) => {
 const Articles: React.FC<ArticlesProps> = ({ articles }) => {
   return (
     <section className="flex flex-col gap-4 p-4">
-      <div className="section-title">
-        <h3 className="header-2">Decouvrez nos meilleurs articles</h3>
-        <kbd className="ghost-btn">Voir Plus &gt;</kbd>
-      </div>
+      <SectionTitle title="Nos meilleurs articles" />
       <div className="grid grid-flow-row justify-center gap-8 md:grid-flow-col">
         {articles.map((acticle, index) => (
           <Article key={index} article={acticle} />
