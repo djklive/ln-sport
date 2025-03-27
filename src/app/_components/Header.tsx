@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const Header: React.FC = () => {
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center p-4">
             <img src="/ln-icon.png" alt="Football News" />
-            <a className="btn btn-ghost text-xl">LN FOOT</a>
+            <Link href="/" className="btn btn-ghost text-xl">LN FOOT</Link>
           </div>
           <div className="dropdown flex w-full justify-end">
             <ul className="z-1 menu dropdown-content menu-sm mt-3 w-52 bg-blue-900/50 p-2 shadow">
@@ -25,6 +26,11 @@ const Header: React.FC = () => {
               <li>
                 <Link href="/live-scores" className="hover:text-orange-500">
                   Scores
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-orange-500">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -56,6 +62,12 @@ const Header: React.FC = () => {
             <li>
               <Link href="/news" className="hover:text-orange-500">
                 Actualités
+              </Link>
+            </li>
+            <li>
+            <li>
+              <Link href="/contact" className="hover:text-orange-500">
+                Contact
               </Link>
             </li>
             <li>
