@@ -7,8 +7,8 @@ import Link from "next/link";
 interface UserPageProps {
   params: { id: string }; // Extracted from the dynamic route
 }
-export default async function NewsPage({ params }: UserPageProps) {
-  const { news: latestNews } = await api.news.findOne({ id: params.id });
+export default async function NewsPage(props: Promise<UserPageProps>) {
+  const { news: latestNews } = await api.news.findOne({ id: await props.params.id });
 
   if (!latestNews) {
     notFound(); // Redirects to 404 page if user is not found
