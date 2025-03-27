@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionTitle } from "../common/section-title";
 
 export type Score = {
   team1: string;
@@ -16,7 +17,7 @@ type LiveScoresProps = {
 
 const LiveScore: React.FC<{ match: Score }> = ({ match }) => {
   return (
-    <div className="grid rounded-lg border p-4">
+    <div className="grid rounded-lg border p-4 bg-[#F1F0F0]">
       <div>{match.state}</div>
       <div className="flex justify-between font-bold">
         <div>{match.team1}</div>
@@ -36,10 +37,7 @@ const LiveScore: React.FC<{ match: Score }> = ({ match }) => {
 const LiveScores: React.FC<LiveScoresProps> = ({ competition, scores }) => {
   return (
     <section className="p-4">
-      <div className="section-title">
-        <h3 className="header-2">Scores en direct</h3>
-        <kbd className="ghost-btn">Voir Plus &gt;</kbd>
-      </div>
+      <SectionTitle title="Scores en direct" pageRef="/live-scores"/>
       <h3 className="mb-4 bg-blue-900 p-4 text-3xl font-semibold uppercase text-white">
         {competition}
       </h3>

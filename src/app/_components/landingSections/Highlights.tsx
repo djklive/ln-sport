@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionTitle } from "../common/section-title";
 
 export type Highlight = {
   title: string;
@@ -11,11 +12,8 @@ type HighlightsProps = {
 
 const Highlights: React.FC<HighlightsProps> = ({ highlights }) => {
   return (
-    <section className="p-4">
-      <div className="section-title">
-        <h3 className="header-2">Points Forts</h3>
-        <kbd className="ghost-btn">Voir Plus &gt;</kbd>
-      </div>
+    <section className="p-2 m-4">
+      <SectionTitle title="Points Forts" />
 
       <div className="grid grid-flow-row justify-center gap-4 md:grid-flow-col">
         {highlights.map(({ title: highlight, imageRef: image_ref }, index) => (

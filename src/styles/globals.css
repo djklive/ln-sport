@@ -14,7 +14,7 @@ body {
 }
 
 .header-2 {
-    @apply p-8 lg:text-5xl text-3xl font-semibold uppercase text-base-secondary
+    @apply p-2 text-xl lg:text-4xl lg:p-8 font-semibold uppercase text-base-secondary
 }
 
 .highlight {
@@ -22,7 +22,7 @@ body {
 }
 
 .ghost-btn {
-    @apply btn btn-ghost kbd uppercase hover:bg-transparent hover:border-base-secondary
+    @apply btn btn-ghost kbd uppercase hover:bg-secondary-content btn-xs
 }
 
 .section-title {
