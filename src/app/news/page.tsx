@@ -15,7 +15,7 @@ export default async function NewsPage() {
 
   return (
     <HydrateClient>
-      <section className="flex items-center justify-center">
+      <section className="lg:flex items-center justify-center">
         <div className="p-6 lg:w-1/2">
           <div className="">
             <div className="breadcrumbs text-sm">
@@ -23,10 +23,7 @@ export default async function NewsPage() {
                 <li>
                   <Link href="/">Home</Link>
                 </li>
-                <li>
-                  <Link href="/news">News</Link>
-                </li>
-                <li>{latestNews.title}</li>
+                <li>News</li>
               </ul>
             </div>
             <h2 className="header-2">{latestNews?.title}</h2>

@@ -22,7 +22,7 @@ body {
 }
 
 .ghost-btn {
-    @apply btn btn-ghost kbd uppercase hover:bg-transparent hover:border-base-secondary
+    @apply btn btn-ghost kbd uppercase hover:bg-secondary-content btn-xs
 }
 
 .section-title {

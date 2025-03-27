@@ -13,7 +13,7 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
     <div className="section-title">
       <h3 className="header-2">{title}</h3>
       <kbd className="ghost-btn">
-        <Link href={pageRef}>Plus &gt;</Link>
+        <Link href={pageRef}>Voir Plus &gt;</Link>
       </kbd>
     </div>
   );
