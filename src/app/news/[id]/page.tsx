@@ -5,18 +5,20 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 
 interface UserPageProps {
-  params: Promise<{ id: string }>; // Extracted from the dynamic route
+  params: Promise<{ id: string }>;
 }
 export default async function NewsPage({ params }: UserPageProps) {
-  const { news: latestNews } = await api.news.findOne({ id: (await params).id });
+  const { news: latestNews } = await api.news.findOne({
+    id: (await params).id,
+  });
 
   if (!latestNews) {
-    notFound(); // Redirects to 404 page if user is not found
+    notFound();
   }
 
   return (
     <HydrateClient>
-      <section className="flex justify-center items-center">
+      <section className="flex items-center justify-center">
         <div className="p-6 lg:w-1/2">
           <div className="">
             <div className="breadcrumbs text-sm">
@@ -27,7 +29,7 @@ export default async function NewsPage({ params }: UserPageProps) {
                 <li>
                   <Link href="/news">News</Link>
                 </li>
-                <li>{latestNews.title}</li>
+                <li>{latestNews.title.slice(0, 20)}...</li>
               </ul>
             </div>
             <h2 className="header-2">{latestNews?.title}</h2>
