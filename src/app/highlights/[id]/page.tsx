@@ -39,7 +39,23 @@ export default async function HighlightPage({ params }: UserPageProps) {
               <source src={highlight.videoRef} />
               Your browser does not support HTML video.
             </video>
-            <p>{highlight && formatDate(highlight.publishedAt)}</p>
+            <div className="p-4">
+              <p>{highlight && formatDate(highlight.publishedAt)}</p>
+              <h3 className="card-title mb-2 text-lg font-semibold">
+                <Link
+                  className="hover:underline"
+                  href={`/highlights/${highlight.id}`}
+                >
+                  {highlight.title}
+                </Link>
+              </h3>
+
+              {highlight.description && (
+                <p className="mb-3 text-sm text-gray-600">
+                  {highlight.description}
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </section>

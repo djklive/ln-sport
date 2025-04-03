@@ -17,7 +17,9 @@ type LiveScoresProps = {
 
 const LiveScore: React.FC<{ match: Score }> = ({ match }) => {
   return (
-    <div className="grid rounded-lg border p-4 bg-[#F1F0F0]">
+    <div
+      className={`grid ${match.state !== "over" ? "animate-pulse" : ""} rounded-lg border bg-[#F1F0F0] p-4`}
+    >
       <div>{match.state}</div>
       <div className="flex justify-between font-bold">
         <div>{match.team1}</div>
@@ -36,9 +38,9 @@ const LiveScore: React.FC<{ match: Score }> = ({ match }) => {
 
 const LiveScores: React.FC<LiveScoresProps> = ({ competition, scores }) => {
   return (
-    <section className="p-4">
-      <SectionTitle title="Scores en direct" pageRef="/live-scores"/>
-      <h3 className="mb-4 bg-blue-900 p-4 text-3xl font-semibold uppercase text-white">
+    <section className="section p-4 bg-transparent">
+      <SectionTitle title="Scores en direct" pageRef="/live-scores" />
+      <h3 className="cursor-pointer mb-4 bg-blue-900 p-4 text-3xl font-semibold uppercase text-white">
         {competition}
       </h3>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">

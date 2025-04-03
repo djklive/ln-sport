@@ -2,6 +2,7 @@ import { api, HydrateClient } from "@ln-foot/trpc/server";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Footer from "../_components/Footer";
+import { HighlightItem } from "../_components/landingSections/Highlights";
 
 export default async function HighlightsPage() {
   const {
@@ -36,18 +37,13 @@ export default async function HighlightsPage() {
             </div>
           </div>
           <div className="divider"></div>
-          <div className="grid grid-cols-2 justify-items-center gap-5 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[latestHighlight, ...highlights].map(
-              ({ id, title, videoRef }, index) => (
-                <div key={index} className="grid gap-2">
-                  <Link href={`/highlights/${id}`} className="text-xs">
-                    {title}
-                  </Link>
-                  <video className="rounded-xl" id="video1" controls>
-                    <source className="size-auto" src={videoRef} />
-                    Your browser does not support HTML video.
-                  </video>
-                </div>
+              (highlight, index) => (
+                <HighlightItem
+                  key={`highlight-${index}`}
+                  highlight={highlight}
+                />
               ),
             )}
           </div>

@@ -6,13 +6,14 @@ import HeroSection from "./_components/landingSections/HeroSection";
 import Highlights from "./_components/landingSections/Highlights";
 import LiveScores from "./_components/landingSections/LiveScores";
 import NewsList from "./_components/landingSections/News";
+import ScrollAnimation from "./_components/common/scoll-annimation";
 
 export default async function Home() {
   const session = await auth();
   if (session?.user) {
     void api.post.getLatest.prefetch();
   }
-  
+
   const { news } = await api.news.latest();
   const { scores } = await api.score.latest();
   const { articles } = await api.article.latest();
@@ -21,10 +22,12 @@ export default async function Home() {
   return (
     <HydrateClient>
       <HeroSection title={"L'actualite du football en continu"} />
-      <LiveScores competition="MTN Elite One" scores={scores} />
-      <Highlights highlights={highlights} />
-      <NewsList actualities={news} />
-      <Articles articles={articles} />
+      <ScrollAnimation>
+        <LiveScores competition="MTN Elite One" scores={scores} />
+        <Highlights highlights={highlights} />
+        <NewsList actualities={news} />
+        <Articles articles={articles} />
+      </ScrollAnimation>
       <Footer />
     </HydrateClient>
   );
