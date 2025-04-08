@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import Link from "next/link";
+
 
 const Header: React.FC = () => {
   return (
@@ -64,7 +64,6 @@ const Header: React.FC = () => {
                 Actualités
               </Link>
             </li>
-            <li>
             <li>
               <Link href="/contact" className="hover:text-orange-500">
                 Contact
